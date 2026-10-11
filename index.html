@@ -1095,6 +1095,12 @@ body[data-cover="sky"] #p1,body:not([data-cover]) #p1,body[data-cover="red"] #p1
 :is(#p3,#p4,#p4b,#p5) .ph,.jgal .ph{container-type:inline-size}
 :is(#p3,#p4,#p4b,#p5) .ph figcaption,.jgal .ph figcaption{font-size:min(6.6pt,12.5cqw)!important;padding:.9mm min(2.2mm,3cqw)!important}
 #p12 .bk-msg{text-transform:uppercase;letter-spacing:.06em;font-size:25.08pt!important;line-height:1.35;max-width:150mm}
+/* running header: brand only, no right-hand label */
+.run .rr{display:none!important}
+.run .rl{white-space:nowrap}
+/* dividers: keep the intro text clear of the photo on every screen */
+#dv1 .dv-ph,#dv2 .dv-ph{height:176mm}
+.dv-body p{max-width:168mm}
 </style><style>/* ---------- online motion (screen only; print unchanged) ---------- */
 @media screen{
  html{scroll-behavior:smooth}
@@ -1363,6 +1369,23 @@ body.land .jgal .ph figcaption{font-size:min(7.4pt,12.5cqw)!important}
 body.land #p9c .gtc{flex-direction:column;align-items:flex-start;gap:2mm;padding:4mm 5mm}
 body.land #p9c .gtc .ic-wrap{width:9mm;height:9mm}body.land #p9c .gtc .ic{width:5mm;height:5mm}
 body.land #p9c .gtc b{font-size:12.5pt;margin-bottom:.5mm}body.land #p9c .gtc p{font-size:10.4pt;line-height:1.4;margin:0}
+/* ---- landscape alignment fixes ---- */
+/* p7: staircase chart must stay inside the page and not be clipped */
+body.land #p7 .in{grid-template-rows:auto auto auto minmax(0,1fr)}
+body.land #p7 .jwrap{min-height:0;overflow:hidden;justify-content:flex-start;padding:5mm 6mm}
+body.land #p7 .jwrap svg.growth{overflow:visible;flex:1 1 0;min-height:0;width:100%;height:auto}
+/* p2b (Rajeshwari): bigger photo so the card is filled */
+body.land #p2b .pz2-ph{height:auto;aspect-ratio:1.15}
+/* p3: photos get the full page width under the heading */
+body.land #p3 .in{display:grid;grid-template-columns:78mm 1fr;grid-template-rows:auto auto auto 1fr;column-gap:9mm;row-gap:4mm}
+body.land #p3 .run{grid-column:1/-1}
+body.land #p3 .ttl{grid-column:1;grid-row:2}body.land #p3 .lead{grid-column:1;grid-row:3;align-self:start}
+body.land #p3 .jgal{grid-column:2;grid-row:2/5}
+/* p11: larger type so the thank-you cards fill the page evenly */
+body.land #p11 .gc{align-self:start}
+body.land #p11 .gc h2{font-size:21pt}body.land #p11 .gc p{font-size:14pt}body.land #p11 .gc small{font-size:9pt}
+body.land #p11 .gn9 li{font-size:13pt;padding:2mm 5mm}
+body.land #p11 .gh h2{font-size:34pt}body.land #p11 .gh p{font-size:16pt}
 
 }</style><link rel="icon" type="image/png" href="favicon.png"></head><body>
 
@@ -1696,8 +1719,8 @@ body.land #p9c .gtc b{font-size:12.5pt;margin-bottom:.5mm}body.land #p9c .gtc p{
 <div class="foot"><span></span><span class="nx"></span><span class="pn">23 / 28</span></div>
 <div class="ttl"><span class="eb">Gratitude</span><h1>With gratitude</h1></div>
 <div class="gh"><small>Our Heartfelt Prayers and Gratitude to</small><h2>Sadguru Sri Madhusudan Sai</h2><p>for the opportunity.</p></div>
-<div class="gc"><small>Our Heartfelt Prayers and Gratitude to</small><h2>Mr. M S Sathyanarayana - Trustee PBMT</h2><p>for support and coordination with the campuses.</p></div>
-<div class="gc"><small>Our Heartfelt Prayers and Gratitude to</small><h2>The hospital management team and staff</h2>
+<div class="gc"><small>Our Gratitude to</small><h2>Mr. M S Sathyanarayana - Trustee PBMT</h2><p>for support and coordination with the campuses.</p></div>
+<div class="gc"><small>Our Gratitude to</small><h2>The hospital management team and staff</h2>
 <ul class="gn9"><li>Dr. Raghupathi AR</li><li>Dr. Padmasri R</li><li>Dr. Satish Babu</li><li>Mr. Tanmay Hegde</li><li>Mr. Manoharan K Pillay</li></ul></div>
 </div></section>
 <section class="a4-page" id="p7t1"><svg class="corner tr" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2">
