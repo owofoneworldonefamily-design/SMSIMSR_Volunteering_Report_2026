@@ -1101,6 +1101,10 @@ body[data-cover="sky"] #p1,body:not([data-cover]) #p1,body[data-cover="red"] #p1
 /* dividers: keep the intro text clear of the photo on every screen */
 #dv1 .dv-ph,#dv2 .dv-ph{height:176mm}
 .dv-body p{max-width:168mm}
+/* Core Volunteer Team divider: same rounded panel as the other dividers */
+#dv3 .dv-ph{height:176mm}#dv3 .dv-body{top:34mm}
+#dv3 .dv-ph .ph{border-radius:70mm 70mm 0 0}
+#dv3 .dv-ph .ph img{object-position:50% 55%}
 </style><style>/* ---------- online motion (screen only; print unchanged) ---------- */
 @media screen{
  html{scroll-behavior:smooth}
@@ -1171,14 +1175,24 @@ body[data-cover="sky"] #p1,body:not([data-cover]) #p1,body[data-cover="red"] #p1
  .js .dv .dv-body>*{opacity:0;transform:translateY(8mm);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
  .js .dv.seen .dv-body>*{opacity:1;transform:none}
  .js .dv.seen .dv-body>*:nth-child(2){transition-delay:.15s}.js .dv.seen .dv-body>*:nth-child(3){transition-delay:.35s}.js .dv.seen .dv-body>*:nth-child(4){transition-delay:.55s}
- .js .dv .dv-ph .ph{clip-path:inset(100% 0 0 0);transition:clip-path 1.3s cubic-bezier(.6,0,.2,1) .4s}
- .js .dv.seen .dv-ph .ph{clip-path:inset(0 0 0 0 round 60mm 60mm 0 0)}
+ .js .dv .dv-ph .ph{opacity:0;transform:translateY(6mm);transition:opacity 1.1s ease .35s,transform 1.2s cubic-bezier(.2,.8,.2,1) .35s}
+ .js .dv.seen .dv-ph .ph{opacity:1;transform:none}
+ @media (prefers-reduced-motion:reduce){.js .dv .dv-ph .ph{opacity:1;transform:none;transition:none}}
  .ix{transition:transform .2s ease}.ix:hover{transform:translateX(2mm)}
  .js .ix{opacity:0;transform:translateY(5mm);transition:opacity .6s ease,transform .7s ease;transition-delay:calc(var(--i,0)*120ms + .2s)}
  .js .seen .ix{opacity:1;transform:none}
 }
 
 @media screen{.cover *,.cover .ph img{animation:none!important;transition:none!important}.cover .ph img{transform:none!important}.js .cover .emb,.js .cover .hundred .d,.js .cover .hundred .pl,.js .cover .cv-line,.js .cover .cv-sub{opacity:1!important;transform:none!important}}
+/* photos ease in as each page comes into view (screen only, off for reduced motion) */
+@media screen and (prefers-reduced-motion:no-preference){
+ .js .a4-page:not(#p1):not(.dv) .ph{opacity:0;transform:translateY(4mm) scale(.985);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+ .js .a4-page.seen:not(#p1):not(.dv) .ph{opacity:1;transform:none}
+ .js .a4-page .ph:nth-child(2){transition-delay:.08s}.js .a4-page .ph:nth-child(3){transition-delay:.16s}
+ .js .a4-page .ph:nth-child(4){transition-delay:.24s}.js .a4-page .ph:nth-child(5){transition-delay:.32s}
+ .js .a4-page .ph:nth-child(6){transition-delay:.4s}.js .a4-page .ph:nth-child(7){transition-delay:.48s}
+ .js .a4-page .ph:nth-child(n+8){transition-delay:.56s}
+}
 </style><style>/* ---- view switch + landscape (desktop) mode, screen only ---- */
 @media screen{
 .vsw{display:inline-flex;gap:2px;background:rgba(252,251,243,.16);border-radius:999px;padding:2px}
